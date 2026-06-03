@@ -9,10 +9,14 @@ const { sendReminders } = require('./services/reminders');
 const app = express();
 
 // Security
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors());
 app.use(express.json());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
+
+// Serve Flutter web app
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
@@ -25,6 +29,11 @@ app.use('/api/admin', require('./routes/admin'));
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date() }));
+
+// Serve Flutter web app for all non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 // Automated reminders - 8am daily
 cron.schedule('0 8 * * *', sendReminders);
