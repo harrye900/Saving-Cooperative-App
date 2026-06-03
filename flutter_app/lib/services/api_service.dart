@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://localhost:5000/api';
+  static const String baseUrl = 'https://ajosave-backend.onrender.com/api';
   static const _storage = FlutterSecureStorage();
 
   static Future<String?> getToken() => _storage.read(key: 'token');

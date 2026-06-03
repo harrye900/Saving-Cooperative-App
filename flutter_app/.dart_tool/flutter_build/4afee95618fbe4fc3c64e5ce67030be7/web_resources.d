@@ -1,0 +1,1 @@
+ build\\web\\manifest.json:  C:\\Users\\harry\\Saving-cooperative-App\\Saving-Cooperative-App\\flutter_app\\web\\index.html C:\\Users\\harry\\Saving-cooperative-App\\Saving-Cooperative-App\\flutter_app\\web\\manifest.json

@@ -1,0 +1,10 @@
+{
+  "name": "AjoSave",
+  "short_name": "AjoSave",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#10B981",
+  "theme_color": "#10B981",
+  "description": "Digital Cooperative Savings & Loan Platform",
+  "orientation": "portrait-primary"
+}

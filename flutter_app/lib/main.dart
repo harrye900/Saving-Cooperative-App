@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'services/auth_service.dart';
 import 'screens/splash_screen.dart';
 import 'screens/onboarding_screen.dart';
@@ -9,14 +8,7 @@ import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/home_shell.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Supabase.initialize(
-    url: 'https://lrljlquzpcwfhesjimcc.supabase.co',
-    anonKey: 'your-anon-key',  // Get from Supabase Dashboard > Settings > API > anon public
-  );
-
+void main() {
   runApp(
     ChangeNotifierProvider(
       create: (_) => AuthService(),
